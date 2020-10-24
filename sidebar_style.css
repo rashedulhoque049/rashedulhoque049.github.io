@@ -1,0 +1,640 @@
+/*  color codes
+
+Background: #202932
+text: #7f8c95
+text hover: #3598db
+
+*/
+
+body{
+    
+    transition: all 0.5s ease;
+    
+    
+}
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    
+}
+
+
+
+.sidebar{
+    z-index: 1000;
+    position: fixed;
+    left: 0px;
+    width: 250px;
+    left: -250px;
+    height: 100%;
+    background-color: #202932;
+    transition: all .5s ease;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+.sidebar ul li {
+    list-style: none;
+    line-height: 45px;
+    border-top: 1px solid rgba(255,255,255,.2);
+    padding:  0 0 0 20px;
+
+}
+
+
+
+.sidebar ul li :hover{
+    padding-left: 5px;
+    transition: .4s;
+    color: #3598db;
+}
+.sidebar ul li a {
+    
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.sidebar ul li a i {
+    color:#7f8c95;
+    
+}
+
+
+
+.sidebar ul :nth-child(6){
+    border-bottom: 1px solid rgba(255,255,255,.2);
+    
+}
+
+
+
+.sidebar-title {
+    color:#3598db;
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    text-align: center;
+    line-height: 40px;
+    user-select: none;
+    height: 200px;
+}
+.sidebar-img img{
+    padding-top: 15px;
+    width:120px;
+    border-radius: 50%;
+    user-select: none;
+    
+}
+
+#show{
+    display: none;
+}
+
+label #btn, label #cancel{
+    
+    position:absolute;
+    cursor: pointer;
+    background:#202932;
+    border-radius: 5px;
+}
+label #btn {
+    left:12px;
+    top:150px;
+    font-size: 40px;
+    color: white;
+    padding: 5px 27px;
+    transition: all .5s;
+}
+label #cancel{
+    z-index: 1111;
+    color: white;
+    background-color: tomato;
+    padding: 10px;
+    left: -195px;
+    top: 79px;
+    transition: all .7s ease;
+
+
+
+}
+
+#show:checked ~ .sidebar{
+    left:0;
+    
+}
+#show:checked ~ label #btn{
+    left:-250px;
+    opacity: 0;
+    transition: all .5s ease;
+    
+}
+#show:checked ~ label #cancel{
+    left:250px;
+  
+}
+
+
+.sidemenu{
+    width: 80px;
+    height: 488px;
+    background-color: #202932;
+    border-radius: 5px;
+    position: absolute;
+    top: 220px;
+    left: 12px;
+    transition: all .5s;
+    
+}
+
+#show:checked ~ .sidemenu{
+    
+    display: none;
+    
+}
+#show:checked ~ .container{
+    
+    margin-left: 250px;
+    transition: all 0.5s ease;
+    
+}
+#show:checked ~ .headernav{
+    
+    margin-left: 250px;
+    transition: all 0.5s ease;
+    
+}
+
+.list{
+    text-align: center;
+    cursor: pointer;
+    
+    
+    padding:10px 10px 10px 10px;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+    transition: all .5s;
+
+    
+}
+
+.list:hover p, .list:hover i{
+
+    color: #3598db;
+    transition: all 0.6s ease;
+    
+}
+
+.list i {
+    font-size: 40px;
+    color: white;
+    transition: all .5s;
+    
+}
+.list p {
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: white;
+    padding-top: 4px;
+    transition: all .5s;
+    
+}
+
+.headernav{
+    
+    padding: 25px 0 25px 0;
+    background-color: green;
+    display: flex;
+    justify-content: space-around;
+    text-decoration:none;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.menuButton ul li{
+    list-style: none;
+    display: inline;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 1px;
+    
+}
+
+.menuButton ul li:hover{
+    color: tomato;
+    transition: all 0.5s ease;
+}
+.container{
+    margin-left: 100px;
+    margin-right: 20px;
+    transition: all .5s;
+    
+}
+
+.middleContent{
+    display: grid;
+    grid-template-areas:
+    ' box1 box1 box1 box1 box2 box2 box2 box2 '
+    ' box1 box1 box1 box1 box2 box2 box2 box2'
+    ' box3 box3 box3 box3 box3 box3 box3 box3';
+    grid-gap:5px;
+    justify-content: space-evenly;
+    
+}
+
+.box1{
+    
+    
+    grid-area: box1;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 50px 10px 50px 10px;
+    line-height: 25px;
+    align-items: center;
+    transition: all .5s ease;
+}
+.box2{
+    
+    
+    grid-area: box2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 10px 50px 10px;
+}
+.circle1{
+    width: 150px;
+    height: 150px;
+    background-color: coral;
+    border-radius: 75px;
+    z-index: 3;
+    background-image: url("img_avatar_pp.jpg");
+    transition: all 0.5s ease;
+    
+}
+.circle2{
+    width: 160px;
+    height: 160px;
+    background-color:white;
+    border-radius: 80px;
+    z-index: 2;
+    margin: 0px 0px 0px -155px;
+    transition: all 0.5s ease;
+}
+.circle3{
+    width: 150px;
+    height: 150px;
+    background-color:cornflowerblue;
+    border-radius: 75px;
+    margin: 10px 0px -60px -90px;
+    z-index: 1;
+    transition: all 0.5s ease;
+    
+    
+}
+.box3{
+    
+    padding-top: 5%;
+    grid-area: box3;
+    display: grid;
+    grid-template-areas:
+    ' box31 '
+    ' box32'
+    ' box33';
+    grid-gap:5px;
+    justify-content: center;
+    align-content: center;
+    
+}
+
+.box31{
+    grid-area: box31;
+    
+    text-align: center;
+}
+.box32{
+    grid-area: box32;
+    
+    text-align: center;
+}
+.box33{
+    grid-area: box33;
+    font-size: 40px;
+    text-align: center;
+    
+    
+}
+
+.container2{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.aboutme{
+    display: grid;
+    grid-template-areas: 
+    'aboutmeBox1 aboutmeBox1 aboutmeBox2';
+}
+
+.aboutmeBox1{
+    grid-area:aboutmeBox1;
+    background-color: teal;
+}
+.aboutmeBox2{
+    grid-area:aboutmeBox2;
+    background-color: tomato;
+    
+}
+
+.education {
+    display: grid;
+    grid-template-areas: 
+    'educationBox1 educationBox2 educationBox2 educationBox2'
+    '. educationBox3 educationBox3 educationBox3'
+    '. educationBox4 educationBox4 educationBox4';
+}
+
+.educationBox1{
+    grid-area: educationBox1;
+    background-color: teal;
+}
+.educationBox2{
+    grid-area: educationBox2;
+    background-color: tomato;
+}
+.educationBox3{
+    grid-area: educationBox3;
+    background-color: violet;
+}
+.educationBox4{
+    grid-area: educationBox4;
+    background-color: yellowgreen;
+}
+
+
+@media only screen and  (min-width: 769px){
+    body {
+      
+    }
+
+    
+    .menuDot{
+        display: none;
+    }
+    .menuTablet{
+        display: none;
+    }
+
+    .box2{
+    
+    
+        grid-area: box2;
+        display: flex;
+        justify-content: left;
+        align-items:left;
+        padding: 50px 10px 50px 10px;
+        
+        transition: all 0.5s ease;
+    }
+    .circle1{
+        width: 200px;
+        height: 200px;
+        background-color: coral;
+        border-radius: 100px;
+        z-index: 3;
+        background-image: url("img_avatar_pp_200.jpg");
+        
+        
+    }
+    .circle2{
+        width: 210px;
+        height: 210px;
+        background-color:white;
+        border-radius: 105px;
+        z-index: 2;
+        margin: 0px 0px 0px -205px;
+        transition: all 0.5s ease;
+        
+    }
+    .circle3{
+        width: 200px;
+        height: 200px;
+        background-color:cornflowerblue;
+        border-radius: 100px;
+        margin: 10px 0px -60px -90px;
+        z-index: 1;
+        transition: all 0.5s ease;
+        
+        
+    }
+    
+
+  }
+/* for Tablet */
+@media only screen and (max-width: 768px) and (min-width: 414px){
+    body {
+      
+    }
+    .container{
+        margin-left: 80px;
+        margin-right: 10px;
+        transition: all .5s;
+    }
+    
+    label #btn {
+        left:12px;
+        top:150px;
+        font-size: 40px;
+        color: white;
+        padding: 5px 15px;
+        transition: all .5s;
+    }
+
+    .sidemenu{
+        width: 55px;
+        height: 280px;
+        background-color: #202932;
+        border-radius: 5px;
+        position: absolute;
+        top: 220px;
+        left: 12px;
+        transition: all .5s;
+        
+    }
+    
+    
+    .list{
+        text-align: center;
+        cursor: pointer;
+        
+        
+        padding:10px 10px 10px 10px;
+        border-bottom: 1px solid rgba(255,255,255,.2);
+        transition: all .5s;
+    
+        
+    }
+
+   
+    
+    .list:hover p, .list:hover i{
+    
+        color: #3598db;
+        transition: all 0.6s ease;
+        
+    }
+    
+    .list i {
+        font-size: 25px;
+        color: white;
+        transition: all .5s;
+        
+    }
+    .list p {
+        display: none;
+        transition: all .5s;
+    }
+   
+   
+
+    .menuButton{
+        display: none;
+    }
+    #menuDotBtn{
+        display: none;
+    }
+
+    label #menubtn {
+        cursor: pointer;
+        font-size: 25px;
+        color: white;
+    }
+    label #menubtnclose {
+        display: none;
+        cursor: pointer;
+        font-size: 25px;
+        color: white;
+        
+        
+    }
+
+    
+
+    .menuTablet{
+        z-index: 1001;
+        position: absolute;
+        top:79px;
+        right: 10px;
+        width: 150px;
+        height: auto;
+        display: none;
+        list-style: none !important;
+        background-color: tomato;
+        
+        
+        
+    }
+   
+    .menuTablet ul li{
+        list-style: none !important;
+        padding: 10px;
+        color: white;
+        
+    }
+
+    
+
+  }
+/* for Mobile */
+  @media only screen and (max-width: 414px) {
+    .container{
+        margin: 0;
+    }
+
+    .sidemenu{
+        display: none;
+        
+    }
+    .menuButton{
+        display: none;
+    }
+    
+    #show{
+        display: none;
+        
+        
+    }
+    
+    label #btn, label #cancel{
+        
+        
+        position: absolute;
+        top: 20px;
+        font-size: 25px;
+        padding: 6px 12px;
+        
+    }
+    #show:checked ~ label #cancel{
+        left:200px;
+      
+    }
+    
+
+    #show:checked ~ .container{
+    
+        margin-left: 25px;
+        transition: all 0.5s ease;
+        
+    }
+    #show:checked ~ .headernav{
+        
+        margin-left: 25px;
+        transition: all 0.5s ease;
+        
+    }
+    
+    
+   
+    .menuDot{
+        display: none;
+    }
+    .menuTablet{
+        display: none;
+        
+    }
+
+    .middleContent{
+        display: grid;
+        grid-template-areas:
+        ' box2'
+        ' box1'
+        ' box3';
+        grid-gap:5px
+    }
+
+    .headernav{
+    
+        padding: 25px 0 25px 0;
+        background-color: green;
+        display: flex;
+        justify-content: flex-end;
+        text-decoration:none;
+        padding-right: 10px;
+        
+    }
+
+    
+
+  }
