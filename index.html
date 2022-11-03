@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+        
+        <!--=============== REMIX ICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <title>Rashedul Hoque Portfolio</title>
+    </head>
+    <body>
+
+        <!---This below script for text type effect-->
+
+        <script>
+
+            var TxtRotate = function(el, toRotate, period) {
+              this.toRotate = toRotate;
+              this.el = el;
+              this.loopNum = 0;
+              this.period = parseInt(period, 10) || 1500;
+              this.txt = '';
+              this.tick();
+              this.isDeleting = false;
+            };
+            
+            TxtRotate.prototype.tick = function() {
+              var i = this.loopNum % this.toRotate.length;
+              var fullTxt = this.toRotate[i];
+            
+              if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+              } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+              }
+            
+              this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+            
+              var that = this;
+              var delta = 300 - Math.random() * 100;
+            
+              if (this.isDeleting) { delta /= 2; }
+            
+              if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+              } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+              }
+            
+              setTimeout(function() {
+                that.tick();
+              }, delta);
+            };
+            
+            window.onload = function() {
+              var elements = document.getElementsByClassName('txt-rotate');
+              for (var i=0; i<elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-rotate');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                  new TxtRotate(elements[i], JSON.parse(toRotate), period);
+                }
+              }
+              // INJECT CSS
+              var css = document.createElement("style");
+              css.type = "text/css";
+              css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+              document.body.appendChild(css);
+            };
+            
+            function showIt() {
+              
+              document.getElementById("show1").style.display = "block";
+              
+            }
+            setTimeout("showIt()", 4500); // after 6 sec
+            
+            function showIt2() {
+              document.getElementById("show2").style.display = "block";
+            }
+            setTimeout("showIt2()", 9000); // after 12 secs
+            
+            function showIt3() {
+              document.getElementById("show3").style.display = "block";
+            }
+            setTimeout("showIt3()", 16500); // after 19 secs
+            
+            function showIt4() {
+              document.getElementById("show4").style.display = "block";
+            }
+            setTimeout("showIt4()", 22100); // after 24 secs
+            
+            function showIt5() {
+              document.getElementById("show5").style.display = "block";
+            }
+            setTimeout("showIt5()", 30000); // after 30 secs
+
+            // Copy email
+            function copyToClipboard() {
+                var copyText = "rashedulhoque049@gmail.com"
+                
+                navigator.clipboard.writeText(copyText);
+            }
+            
+            
+        </script>
+
+
+        <!--=============== HEADER ===============-->
+        <header class="profile container">
+            <!-- Theme button -->
+            <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+            <div class="profile__container grid">
+                <div class="profile__data">
+                    <div class="profile__border">
+                        <div class="profile__perfil">
+                            <!-- Insert your image, according to the example size of the portfolio -->
+                            <img src="assets/img/profile pic_v2.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <h2 class="profile__name">Rashedul Hoque</h2>
+                    <h3 class="profile__profession">B+ is my blood group as well as my attitude.</h3>
+
+                    <ul class="profile__social">
+                        <a href="https://www.instagram.com/" target="_blank" class="profile__social-link" >
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/rashedulhoque049/" target="_blank" class="profile__social-link">
+                            <i class="ri-linkedin-box-line"></i>
+                        </a>
+                        <a href="https://github.com/rashedulhoque049" target="_blank" class="profile__social-link">
+                            <i class="ri-github-line"></i>
+                        <a href="https://www.behance.net/rashedulhoque049" target="_blank" class="profile__social-link">
+                            <i class="ri-behance-fill"></i>
+                        </a>
+                        <a href="" target="_blank" class="profile__social-link">
+                            <i class="ri-youtube-line"></i>
+                        </a>
+                        
+                    </ul>
+                </div>
+
+
+                <div class="intro">
+
+                    <h3>I am a
+                        <span
+                        class="txt-rotate"
+                        data-period="1500"
+                        data-rotate='[ "Developer", "Designer", "Data Enthusiast", "Freelancer", "Hobbyist Youtuber" ]'></span>
+                        </h3> 
+
+                    <div class="intro_animation" id="intro_box">
+
+                    
+                        <p id="show1" style="display: none">Developer</p> 
+                        <p id="show2" style="display: none">Designer</p> 
+                        <p id="show3" style="display: none">Data Enthusiast</p> 
+                        <p id="show4" style="display: none">Freelancer</p> 
+                        <p id="show5" style="display: none">Hobbyist Youtuber</p> 
+                    
+                    </div>
+
+                </div>
+
+
+                <div class="profile__info grid">
+                    <div class="profile__info-group">
+                        <h3 class="profile__info-number">7</h3>
+                        <p class="profile__info-description">
+                            Years of <br> work
+                        </p>
+                    </div>
+                    <div class="profile__info-group">
+                        <h3 class="profile__info-number">+124</h3>
+                        <p class="profile__info-description">
+                            Completed <br> projects
+                        </p>
+                    </div>
+                    <div class="profile__info-group">
+                        <h3 class="profile__info-number">96</h3>
+                        <p class="profile__info-description">Satisfied <br> customers</p>
+                    </div>
+                </div>
+
+                <div class="profile__buttons">
+                    <!-- 
+                    <a href="" class="buttonHireMe">
+                        Hire Me <i class="ri-arrow-up-circle-line"></i>
+                    </a> Hire me button -->
+
+                    <a download="" href="" class="button">
+                        Download CV <i class="ri-download-line"></i>
+                    </a>
+
+
+                    <div class="profile__buttons-small">
+                        <!-- Insert a real number plus country code -->
+                        <a href="https://api.whatsapp.com/send?phone=+8801676033321&text=Hello, Let's start working!" target="_blank" class="button button__small button__gray" style="color:#25d366">
+                            <i class="ri-whatsapp-line"></i>
+                        </a>
+                        <!-- Insert your brand name or profile -->
+                        <a href="https://m.me/rashed049/" target="_blank" class="button button__small button__gray" style="color:#0078ff">
+                            <i class="ri-messenger-line"></i>
+                        </a>
+
+                        <div class="tooltip">
+                            <a class="button button__small button__gray" style="color:#ea4335; cursor: pointer;" onclick="copyToClipboard()">
+                                <i class="ri-mail-add-line"></i>
+                            </a>
+                            <span class="tooltiptext">Copied</span>
+                            
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!--=============== MAIN ===============-->
+        <main class="main">
+            <section class="filters container">
+                <!--=============== FILTERS TABS ===============-->
+                <ul class="filters__content">
+                    <button class="filters__button" data-target="#Education">
+                        Education
+                    </button>
+                    <button class="filters__button" data-target="#AcademicProjects">
+                        Academic Projects
+                    </button>
+                    <button class="filters__button" data-target="#Activities">
+                        Co-curricular Activities
+                    </button>
+                    <button class="filters__button filter-tab-active" data-target="#Experience">
+                        Experience
+                    </button>
+                    <button class="filters__button" data-target="#projects">
+                        Projects
+                    </button>
+                    <button class="filters__button" data-target="#skills">
+                        Skills
+                    </button>
+                    <button class="filters__button" data-target="#Certificate">
+                        Certificates
+                    </button>
+                    
+                </ul>
+
+                <div class="filters__sections">
+
+                    
+
+                    <!--=============== Education===============-->
+
+                    <div class="education__content grid" data-content id="Education">
+                        <article class="">
+                            
+                            <div class="education_year">
+                                2014-2018
+                            </div>
+
+                            <div class="education_title">
+                                <i class="ri-award-fill" style="color:#42a5f5; font-size: 19px;"></i> 
+                                <a> B.Sc in Computer Science</a>
+                                
+                            </div>
+
+                            <div>
+                                BRAC University, Dhaka
+                            </div>
+
+                            <div class="education_description">
+                                <i class="ri-checkbox-blank-circle-fill" style="font-size: 8px; padding-left: 7px;"></i>
+                                <a>Coding</a>
+                                
+                            </div>
+                            
+                        </article>
+                        <!--2nd -->
+                        <article class="">
+                            
+                            <div class="education_year">
+                                2012
+                            </div>
+
+                            <div class="education_title">
+                                <i class="ri-award-fill" style="color:#42a5f5; font-size: 19px;"></i>
+                                <a>Higher Secondary Certificate </a>
+                                
+                            </div>
+
+                            <div>
+                                Dhaka College, Dhaka
+                            </div>
+
+                            <div class="education_description">
+                                <i class="ri-checkbox-blank-circle-fill" style="font-size: 8px; padding-left: 7px;"></i>
+                                <a>Science Group</a>
+                            </div>
+                            
+                        </article>
+
+                        <!--3rd -->
+                        <article class="">
+                            
+                            <div class="education_year">
+                                2010
+                            </div>
+
+                            <div class="education_title">
+                                <i class="ri-award-fill" style="color:#42a5f5; font-size: 19px;"></i>
+                                <a> Secondary School Certificate</a>
+                                
+                            </div>
+
+                            <div>
+                                Motijheel Model High School And College
+                            </div>
+
+                            <div class="education_description">
+                                <i class="ri-checkbox-blank-circle-fill" style="font-size: 8px; padding-left: 7px;"></i>
+                                <a>Science Group</a>
+                            </div>
+                            
+                        </article>
+
+                        
+                    </div>
+
+                    <!--=============== AcademicProjects===============-->
+
+                    <div class="projects__content grid" data-content id="AcademicProjects">
+                       
+                        <article class="projects__card">
+                            <!-- Insert your image in a rectangular format (Ex: 600 x 400, 1000 x 800, 1200 x 1000, etc) -->
+                            <img src="assets/img/acp-02.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                <a href="http://dspace.bracu.ac.bd/xmlui/handle/10361/10142" target="_blank">
+                                    <span class="projects__subtitle">Bangla OCR</span>
+                                    <h3 class="projects__title">Bangla Text Extraction by Image Processing</h3>
+                                    <a href="https://www.youtube.com/watch?v=aYWDuEnOkic" target="_blank" class="projects__button button button__small">
+                                        <i class="ri-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                        </article>
+
+                        <article class="projects__card">
+                            <!-- Insert your image in a rectangular format (Ex: 600 x 400, 1000 x 800, 1200 x 1000, etc) -->
+                            <img src="assets/img/acp-03.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                <a href="https://www.youtube.com/watch?v=dRdtznCF3VA" target="_blank">
+                                    <span class="projects__subtitle">Emergency Services BD</span>
+                                    <h3 class="projects__title">HTML, CSS, PHP, JavaScript and PhpMyAdmin</h3>
+                                    <a href="https://www.youtube.com/watch?v=dRdtznCF3VA" target="_blank" class="projects__button button button__small">
+                                        <i class="ri-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                        </article>
+                        <article class="projects__card">
+                            <!-- Insert your image in a rectangular format (Ex: 600 x 400, 1000 x 800, 1200 x 1000, etc) -->
+                            <img src="assets/img/acp-04.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                <a href="https://www.youtube.com/watch?v=xmm9AONIHt0" target="_blank">
+                                    <span class="projects__subtitle">Java Web Project</span>
+                                    <h3 class="projects__title">Restaurant Management System using Java, and Mysql Workbench</h3>
+                                    <a href="https://www.youtube.com/watch?v=xmm9AONIHt0" target="_blank" class="projects__button button button__small">
+                                        <i class="ri-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                        </article>
+                        <article class="projects__card">
+                            <!-- Insert your image in a rectangular format (Ex: 600 x 400, 1000 x 800, 1200 x 1000, etc) -->
+                            <img src="assets/img/acp-05.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                <a href="https://www.youtube.com/watch?v=m3aijU17GgM" target="_blank">
+                                    <span class="projects__subtitle">Android App</span>
+                                    <h3 class="projects__title">Emergency Services BD using Android Studio & Firebase Database</h3>
+                                    <a href="https://www.youtube.com/watch?v=m3aijU17GgM" target="_blank" class="projects__button button button__small">
+                                        <i class="ri-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                        </article>
+
+                        <article class="projects__card">
+                            <!-- Insert your image in a rectangular format (Ex: 600 x 400, 1000 x 800, 1200 x 1000, etc) -->
+                            <img src="assets/img/acp-06.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                <a href="https://www.youtube.com/watch?v=RRzYGr7-yb8" target="_blank">
+                                    <span class="projects__subtitle">Robotics - Arduino Project</span>
+                                    <h3 class="projects__title">Home Automation & Smart Security Prototype</h3>
+                                    <a href="https://www.slideshare.net/RashedulHoque13/presentation-home-automation-smart-security" target="_blank" class="projects__button button button__small">
+                                        <i class="ri-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                        </article>
+
+                        
+                    </div>
+
+                    <!--=============== Co-curricular Activities ===============-->
+                    <div class="projects__content grid " data-content id="Activities">
+                        
+
+                        <article class="projects__card">
+                            <!-- Insert your image in a rectangular format (Ex: 600 x 400, 1000 x 800, 1200 x 1000, etc) -->
+                            <img src="assets/img/cca-01.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                <a href="https://www.slideshare.net/RashedulHoque13/get-started-with-design-rashedul-hoque-arif" target="_blank">
+                                    <span class="projects__subtitle">Get Started With Design</span>
+                                    <h3 class="projects__title">Hands-On workshop by Rashedul Hoque</h3>
+                                    <a href="https://www.slideshare.net/RashedulHoque13/get-started-with-design-rashedul-hoque-arif" target="_blank" class="projects__button button button__small">
+                                        <i class="ri-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                        </article>
+
+                        <article class="projects__card">
+                            <!-- Insert your image in a rectangular format (Ex: 600 x 400, 1000 x 800, 1200 x 1000, etc) -->
+                            <img src="assets/img/cca-2.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                <a href="assets/code/Portfolio Gallery with filter/portfolioGallery.html" target="_blank">
+                                    <span class="projects__subtitle">University Club Activities</span>
+                                    <h3 class="projects__title">My work for Creative Department of Computer Club</h3>
+                                    <a href="assets/code/Portfolio Gallery with filter/portfolioGallery.html" target="_blank" class="projects__button button button__small">
+                                        <i class="ri-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                        </article>
+
+                        
+                    </div>
+
+                    <!--=============== Experience===============-->
+
+                    <div class="experience__content filters__active" data-content id="Experience">
+                        
+                        <div class="experience_box">
+                            <div class="Experience_logo">
+                                <img src="assets/img/experience/fiverr.png" alt="Fiverr Logo">
+                            </div>
+                            <div class="experience_info">
+                            <h4>Web Developer & Graphic Designer</h4>
+                            <h3>Fiverr </h3>
+                            <h5>Part-time · Jan 2019 - Present</h5>
+                            <h5>Skills: Databases · Data Analysis · Team Coordination · Data Processing · Reporting</h5>
+                            </div>
+                        </div>
+
+                        <div class="experience_box">
+                            <div class="Experience_logo">
+                                <img src="assets/img/experience/taskeater.png" alt="Taskeater Logo">
+                            </div>
+                            <div class="experience_info">
+                            <h4>Project Employee</h4>
+                            <h3>Taskeater </h3>
+                            <h5>Full-time · Feb 2022 - Jul 2022 · 6 months<h5>
+                            <h5>Skills: Databases · Data Analysis · Team Coordination · Data Processing · Reporting</h5>
+                            </div>
+                        </div>
+
+                        <div class="experience_box">
+                            <div class="Experience_logo">
+                                <img src="assets/img/experience/taskeater.png" alt="Taskeater Logo">
+                            </div>
+                            <div class="experience_info">
+                            <h4>Web Developer & Graphic Designer</h4>
+                            <h3>Fiverr </h3>
+                            <h5>Full-time · Jan 2019 - Present</h5>
+                            <h5>Skills: Databases · Data Analysis · Team Coordination · Data Processing · Reporting</h5>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+
+
+
+                    <!--=============== PROJECTS ===============-->
+                    <div class="projects__content grid " data-content id="projects">
+                        
+                        <article class="projects__card">
+                            <!-- Insert your image in a rectangular format (Ex: 600 x 400, 1000 x 800, 1200 x 1000, etc) -->
+                            <img src="assets/img/p-02.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                <a href="assets/code/Project Gallery with filter/projectGallery.html" target="_blank">
+                                    <span class="projects__subtitle">Client Works</span>
+                                    <h3 class="projects__title">Web Development</h3>
+                                    <a href="assets/code/Project Gallery with filter/projectGallery.html" target="_blank" class="projects__button button button__small">
+                                        <i class="ri-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                        </article>
+
+                        <article class="projects__card">
+                            <!-- Insert your image in a rectangular format (Ex: 600 x 400, 1000 x 800, 1200 x 1000, etc) -->
+                            <img src="assets/img/p-03.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                <a href="assets/code/Design Gallery with filter/designGallery.html" target="_blank">
+                                    <span class="projects__subtitle">Client Works</span>
+                                    <h3 class="projects__title">Graphic Design</h3>
+                                    <a href="assets/code/Design Gallery with filter/designGallery.html" target="_blank" class="projects__button button button__small">
+                                        <i class="ri-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                        </article>
+
+                        <article class="projects__card">
+                            <!-- Insert your image in a rectangular format (Ex: 600 x 400, 1000 x 800, 1200 x 1000, etc) -->
+                            <img src="assets/img/p-01.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                <a href="assets/code/Project-01/sizeCopy.html" target="_blank">
+                                    <span class="projects__subtitle">Convert Title Case</span>
+                                    <h3 class="projects__title">Useful tool developed for Taskeater for specific task</h3>
+                                    <a href="assets/code/Project-01/sizeCopy.html" target="_blank" class="projects__button button button__small">
+                                        <i class="ri-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                        </article>
+
+                        
+                    </div>
+
+                    <!--=============== SKILLS ===============-->
+                    <div class="skills__content grid" data-content id="skills">
+                        <div class="skills__area">
+                            <h3 class="skills__title">Frontend Developer</h3>
+    
+                            <div class="skills__box">
+                                <div class="skills__group">
+                                    <div class="skills__data">
+                                        <i class="ri-checkbox-circle-line"></i>
+        
+                                        <div>
+                                            <h3 class="skills__name">HTML</h3>
+                                            <span class="skills__level">Advance</span>
+                                        </div>
+                                    </div>
+        
+                                    <div class="skills__data">
+                                        <i class="ri-checkbox-circle-line"></i>
+        
+                                        <div>
+                                            <h3 class="skills__name">CSS</h3>
+                                            <span class="skills__level">Advanced</span>
+                                        </div>
+                                    </div>
+        
+                                    <div class="skills__data">
+                                        <i class="ri-checkbox-circle-line"></i>
+        
+                                        <div>
+                                            <h3 class="skills__name">JavaScript</h3>
+                                            <span class="skills__level">Intermediate</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="skills__group">
+                                    <div class="skills__data">
+                                        <i class="ri-checkbox-circle-line"></i>
+        
+                                        <div>
+                                            <h3 class="skills__name">React</h3>
+                                            <span class="skills__level">Intermediate</span>
+                                        </div>
+                                    </div>
+        
+                                    <div class="skills__data">
+                                        <i class="ri-checkbox-circle-line"></i>
+        
+                                        <div>
+                                            <h3 class="skills__name">Bootstrap</h3>
+                                            <span class="skills__level">Intermediate</span>
+                                        </div>
+                                    </div>
+        
+                                    <div class="skills__data">
+                                        <i class="ri-checkbox-circle-line"></i>
+        
+                                        <div>
+                                            <h3 class="skills__name">Git</h3>
+                                            <span class="skills__level">Intermediate</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skills__area">
+                            <h3 class="skills__title">Backend Developer</h3>
+    
+                            <div class="skills__box">
+                                <div class="skills__group">
+                                    <div class="skills__data">
+                                        <i class="ri-checkbox-circle-line"></i>
+        
+                                        <div>
+                                            <h3 class="skills__name">PHP</h3>
+                                            <span class="skills__level">Intermediate</span>
+                                        </div>
+                                    </div>
+        
+                                    <div class="skills__data">
+                                        <i class="ri-checkbox-circle-line"></i>
+        
+                                        <div>
+                                            <h3 class="skills__name">MySQL</h3>
+                                            <span class="skills__level">Advance</span>
+                                        </div>
+                                    </div>
+        
+                                    <div class="skills__data">
+                                        <i class="ri-checkbox-circle-line"></i>
+        
+                                        <div>
+                                            <h3 class="skills__name">Firebase</h3>
+                                            <span class="skills__level">Intermediate</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="skills__group">
+                                    <div class="skills__data">
+                                        <i class="ri-checkbox-circle-line"></i>
+        
+                                        <div>
+                                            <h3 class="skills__name">Python</h3>
+                                            <span class="skills__level">Basic</span>
+                                        </div>
+                                    </div>
+        
+                                    <div class="skills__data">
+                                        <i class="ri-checkbox-circle-line"></i>
+        
+                                        <div>
+                                            <h3 class="skills__name">Node Js</h3>
+                                            <span class="skills__level">Basic</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skills__area">
+                            <h3 class="skills__title">Tools & Applications</h3>
+    
+                            <div class="skills__box">
+                                <div class="skills__group">
+                                    <div class="skills__data">
+                                        <i class="ri-checkbox-circle-line"></i>
+        
+                                        <div>
+                                            <h3 class="skills__name">Adobe Photoshop</h3>
+                                            <span class="skills__level">Intermediate</span>
+                                        </div>
+                                    </div>
+        
+                                    <div class="skills__data">
+                                        <i class="ri-checkbox-circle-line"></i>
+        
+                                        <div>
+                                            <h3 class="skills__name">Adobe Illustrator</h3>
+                                            <span class="skills__level">Advance</span>
+                                        </div>
+                                    </div>
+        
+                                    <div class="skills__data">
+                                        <i class="ri-checkbox-circle-line"></i>
+        
+                                        <div>
+                                            <h3 class="skills__name">MS PowerPoint</h3>
+                                            <span class="skills__level">Intermediate</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="skills__group">
+                                    <div class="skills__data">
+                                        <i class="ri-checkbox-circle-line"></i>
+        
+                                        <div>
+                                            <h3 class="skills__name">MS Excel</h3>
+                                            <span class="skills__level">Basic</span>
+                                        </div>
+                                    </div>
+        
+                                    <div class="skills__data">
+                                        <i class="ri-checkbox-circle-line"></i>
+        
+                                        <div>
+                                            <h3 class="skills__name">Adobe XD</h3>
+                                            <span class="skills__level">Basic</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+<!--Certificate -->
+
+                    <div class="projects__content grid" data-content id="Certificate">
+                        <article class="projects__card">
+                            
+                            <!-- Insert your image in a rectangular format (Ex: 600 x 400, 1000 x 800, 1200 x 1000, etc) -->
+                            <img src="assets/img/c-01.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                    <a href="https://www.udemy.com/certificate/UC-18f4e44a-eda0-4f43-83bf-2657e31707e0/" target="_blank">
+                                    <span class="projects__subtitle">Udemy</span>
+                                    <h3 class="projects__title">HTML, CSS, & JavaScript</h3>
+                                    <a href="https://www.udemy.com/certificate/UC-18f4e44a-eda0-4f43-83bf-2657e31707e0/" class="projects__button button button__small" target="_blank">
+                                        <i class="ri-link" ></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </a> 
+                        </article>
+
+                        <article class="projects__card">
+                            <img src="assets/img/c-02.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                    <a href="https://certificates.simplicdn.net/share/3210045_1643328340.pdf" target="_blank">
+                                    <span class="projects__subtitle">Simplilearn</span>
+                                    <h3 class="projects__title">ReactJS for Beginners</h3>
+                                    <a href="https://certificates.simplicdn.net/share/3210045_1643328340.pdf" class="projects__button button button__small" target="_blank">
+                                        <i class="ri-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                        </article>
+
+                        <article class="projects__card">
+                            <img src="assets/img/c-03.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                    <a href="https://certificates.simplicdn.net/share/3816325_1664543497.pdf" target="_blank">
+                                    <span class="projects__subtitle">Simplilearn</span>
+                                    <h3 class="projects__title">Introduction to Data Analytics</h3>
+                                    <a href="https://certificates.simplicdn.net/share/3816325_1664543497.pdf" class="projects__button button button__small" target="_blank">
+                                        <i class="ri-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </a> 
+                        </article>
+
+                        <article class="projects__card">
+                            <img src="assets/img/c-04.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                    <a href="https://certificates.simplicdn.net/share/3823488_1664818990.pdf" target="_blank">
+                                    <span class="projects__subtitle">Simplilearn</span>
+                                    <h3 class="projects__title">Introduction to Big Data Tools</h3>
+                                    <a href="https://certificates.simplicdn.net/share/3823488_1664818990.pdf" class="projects__button button button__small" target="_blank">
+                                        <i class="ri-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </a> 
+                        </article>
+
+                        <article class="projects__card">
+                            <img src="assets/img/c-05.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                    <a href="https://www.udemy.com/certificate/UC-9c0b0268-4309-47da-85ac-a3d0b939ea3b/" target="_blank">
+                                    <span class="projects__subtitle">Udemy</span>
+                                    <h3 class="projects__title">Ultimate Adobe Photoshop CC Masterclass</h3>
+                                    <a href="https://www.udemy.com/certificate/UC-9c0b0268-4309-47da-85ac-a3d0b939ea3b/" class="projects__button button button__small" target="_blank">
+                                        <i class="ri-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </a> 
+                        </article>
+
+                        <article class="projects__card">
+                            <img src="assets/img/c-06.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                    <a href="https://www.udemy.com/certificate/UC-9c0b0268-4309-47da-85ac-a3d0b939ea3b/" target="_blank">
+                                    <span class="projects__subtitle">Udemy</span>
+                                    <h3 class="projects__title">Ultimate Adobe Photoshop CC Masterclass</h3>
+                                    <a href="https://www.udemy.com/certificate/UC-9c0b0268-4309-47da-85ac-a3d0b939ea3b/" class="projects__button button button__small" target="_blank">
+                                        <i class="ri-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </a> 
+                        </article>
+                    
+                    </div>
+
+
+
+                </div>
+            </section>
+        </main>
+
+        <br>
+        <br>
+        
+
+        <!--=============== SCROLLREVEAL ===============-->
+        <script src="assets/js/scrollreveal.min.js"></script>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>

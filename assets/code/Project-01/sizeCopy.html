@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Item Name and Size CB</title>
+    <link rel="icon" type="image/x-icon" href="favicon-32x32.png">
+
+    <style>
+        body {
+            font-family: Arial;
+          background-color: #f4f4f8;
+          width: 1080px;
+            margin: auto;
+        }
+        h1,h2,h3,h4{
+            font-family: Arial;
+        }
+
+        .button {
+        width: 130px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        text-align: center;
+        color: #333333;
+        font-family: Arial;
+        font-size: 15px;
+        font-weight: 600;
+        margin-left: 5px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        display: inline-block;
+        }
+
+  
+
+        .button-1 {
+        background-color: transparent;
+        border: 2px solid #333333;
+        color: #333333;
+        transition: .3s;
+        }
+        .button-1:hover {
+        animation: pulse 1s infinite;
+        transition: .3s;
+        
+        }
+            @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            70% {
+                transform: scale(.9);
+            }
+                100% {
+                transform: scale(1);
+            }
+        }
+
+       .tArea{
+        
+        resize: none;
+        height: 130px;
+        width: 960px;
+      
+       }
+    
+
+       .button2 {
+        border: none;
+        width: 110px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        font-family: Arial;
+        font-size: 18px;
+        font-weight: 400;
+        background-color: #e74c3c;
+        box-shadow: 0px 5px 0px 0px #CE3323;
+        margin-right: 5px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        display: inline-block;
+        
+        }
+
+        .button2:active {
+            background-color: #FF6656;
+            transform: translateY(3px);
+        }
+
+        .button3 {
+            border: none;
+        width: 110px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        font-family: Arial;
+        font-size: 18px;
+        font-weight: 400;
+        background-color: #55acee;
+        box-shadow: 0px 5px 0px 0px #3C93D5;
+        margin-right: 5px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        display: inline-block;
+        
+        }
+
+        .button3:active {
+            background-color: #6FC6FF;
+            transform: translateY(3px);
+        }
+
+        .button4 {
+            border: none;
+        width: 110px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        font-family: Arial;
+        font-size: 18px;
+        font-weight: 400;
+        background-color: #2ecc71;
+        box-shadow: 0px 5px 0px 0px #15B358;
+        margin-right: 5px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        display: inline-block;
+        
+        }
+
+        .button4:active {
+            background-color: #48E68B;
+            transform: translateY(3px);
+        }
+
+        .button5 {
+            border: none;
+        width: 110px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        font-family: Arial;
+        font-size: 18px;
+        font-weight: 400;
+        background-color: #e67e22;
+        box-shadow: 0px 5px 0px 0px #CD6509;
+        margin-right: 5px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        display: inline-block;
+        
+        }
+
+        .button5:active {
+            background-color: #FF983C;
+            transform: translateY(3px);
+        }
+
+        textarea { 
+            font-size: 18px;
+            
+        }
+
+        
+        .btn {
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        position: relative;
+        position: absolute;
+        
+        transform: translate(-50%, -50%);
+        -webkit-transition: all .3s ease-out;
+        -o-transition: all .3s ease-out;
+        transition: all .3s ease-out;
+        }
+
+        .text {
+        padding: 0 50px;
+        visibility: hidden;
+        }
+
+        .flip-front, 
+        .flip-back {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-transform-style: flat;
+            transform-style: flat;
+            -webkit-transition: -webkit-transform .3s ease-out;
+            -o-transition: -o-transform .3s ease-out;
+            transition: transform .3s ease-out;
+        }
+
+        .flip-front {
+            color: #313131;
+            border: 2px solid #313131;
+            background-color: transparent;
+            -webkit-transform: rotateX(0deg) translateZ(25px);
+            -ms-transform: rotateX(0deg) translateZ(25px);
+            -o-transform: rotateX(0deg) translateZ(25px);
+            transform: rotateX(0deg) translateZ(25px);
+        }
+
+        .flip-back {
+        color: #fff;
+        background-color: #313131;
+        border: 2px solid #313131;
+        -webkit-transform: rotateX(90deg) translateZ(25px);
+        -ms-transform: rotateX(90deg) translateZ(25px);
+        -o-transform: rotateX(90deg) translateZ(25px);
+        transform: rotateX(90deg) translateZ(25px);
+        }
+
+        .btn:hover .flip-front {
+            -webkit-transform: rotateX(-90deg) translateZ(25px);
+            -ms-transform: rotateX(-90deg) translateZ(25px);
+            -o-transform: rotateX(-90deg) translateZ(25px);
+            transform: rotateX(-90deg) translateZ(25px);
+        }
+
+        .btn:hover .flip-back {
+            -webkit-transform: rotateX(0deg) translateZ(25px);
+            -ms-transform: rotateX(0deg) translateZ(25px);
+            -o-transform: rotateX(0deg) translateZ(25px);
+            transform: rotateX(0deg) translateZ(25px);
+        }
+
+
+
+#about {
+  position: relative;
+  
+  float: right;
+}
+
+#expand-menu {
+    position: absolute;
+    display: none;
+    top: 40px;
+    left: -65px;
+    
+  
+}
+
+.aboutme:hover {
+    transition: ease 1s;
+    
+    filter: none;
+
+}
+
+.aboutme{
+    
+    width: 350px;
+    height: 280px;
+    border-radius: 10px;
+    filter: grayscale(100%);
+    margin:auto;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #30D5C8;
+    text-align: center;
+    padding-top: 25px;
+}
+
+
+
+.profile-photo{
+    
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 100%;
+    overflow: hidden;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #30D5C8;
+}
+.pp{
+    width: 80px;
+    
+}
+
+.social-links ul {
+    padding: 0px;
+    margin: 0px;
+}
+.social-links ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 2px 0px;
+    font-size: 20px;            
+}
+.social-links ul li a {
+    color: #333;
+    padding: 2px 6px;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.qt-logo{
+    
+    width: 150px;
+}
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-size: 15px;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+
+.formStyle-input{
+
+    width: 50%;
+  padding: 12px 12px;
+  margin-left: 5px ;
+    box-sizing: border-box;
+  font-weight: 600;
+  font-size: 15px;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+.formStyle-input:focus {
+  border: 3px solid #555;
+}
+
+.formStyle-submit{
+
+  
+  padding: 12px 12px;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  
+
+}
+
+.formStyle-submit:hover {background-color: #3e8e41}
+
+.formStyle-submit:active {
+  background-color: #3e8e41;
+  transform: translateY(4px);
+}
+
+.formStyle-submit:nth-child(3){
+    background-color: #2e3234;
+
+}
+
+.formStyle-submit:nth-child(3):hover{
+    background-color: #161819;
+
+}
+.formStyle-submit:nth-child(3):active {
+  background-color: #161819;
+  transform: translateY(4px);
+}
+
+
+
+    </style>
+
+</head>
+<body>
+    
+
+    <h2>Convert Title Case</h2>
+
+    
+
+    <div id="about">
+
+        <a href="#" class="btn" >
+            <span class="text">Text</span>
+            <span class="flip-front">Hi, I'am</span>
+            <span class="flip-back">About Me</span>
+          </a>
+
+          <div id="expand-menu">
+
+              <div class="aboutme">
+
+
+                <div class="profile-photo">
+                    <img class="pp" src="pp01_600.jpg" alt="profile Photo" >
+                </div>
+                <h2>Rashedul Hoque</h2>
+                <p style="margin-top: -12px;" >Associate, <span style="font-weight: bold;"  >Quantanite BPO</span></p>
+                <div>
+                    <img class="qt-logo" style="margin-top: -12px;" src="https://quantanite.com/wp-content/uploads/2020/07/Q_logo_final-03.png" alt="Quantanite logo" >
+                </div>
+                
+                <div class="social-links" style="margin-top: 20px;">
+                    <ul>
+                        <li class="tooltip" ><a><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height: auto; width: 19px; "><a href="tel:+8801676033321"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 0H96C60.65 0 32 28.65 32 64v384c0 35.35 28.65 64 64 64h288c35.35 0 64-28.65 64-64V64C448 28.65 419.3 0 384 0zM240 128c35.35 0 64 28.65 64 64s-28.65 64-64 64c-35.34 0-64-28.65-64-64S204.7 128 240 128zM336 384h-192C135.2 384 128 376.8 128 368C128 323.8 163.8 288 208 288h64c44.18 0 80 35.82 80 80C352 376.8 344.8 384 336 384zM496 64H480v96h16C504.8 160 512 152.8 512 144v-64C512 71.16 504.8 64 496 64zM496 192H480v96h16C504.8 288 512 280.8 512 272v-64C512 199.2 504.8 192 496 192zM496 320H480v96h16c8.836 0 16-7.164 16-16v-64C512 327.2 504.8 320 496 320z" style="fill: #34A853;" /></a></svg> <span class="tooltiptext">01676033321</span> </a></li> 
+                        <li class="tooltip" ><a><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height: auto; width: 19px; "><a href="mailto:rashedul.hoque@quantanite.com"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 352c-16.53 0-33.06-5.422-47.16-16.41L0 173.2V400C0 426.5 21.49 448 48 448h416c26.51 0 48-21.49 48-48V173.2l-208.8 162.5C289.1 346.6 272.5 352 256 352zM16.29 145.3l212.2 165.1c16.19 12.6 38.87 12.6 55.06 0l212.2-165.1C505.1 137.3 512 125 512 112C512 85.49 490.5 64 464 64h-416C21.49 64 0 85.49 0 112C0 125 6.01 137.3 16.29 145.3z" style="fill: #EA4335 ;"/></a></svg> <span class="tooltiptext">rashedul.hoque</span> </a></li>
+                        <li><a><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="height: auto; width: 17px; padding-left: 5px;"><a href="https://www.facebook.com/rashed049" target="_blank"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z" style="fill: #3b5998 ;" /></a></svg></a></li>
+                        <li><a><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="height: auto; width: 17px; padding-left: 5px;"><a href="https://www.linkedin.com/in/rashedulhoque049/" target="_blank"><!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" style="fill: #0e76a8;" /></a></svg></a></li>                            
+                    </ul>
+                </div>
+
+                
+
+              </div>
+            
+          </div>
+
+    </div>
+
+   
+
+
+    <h4>Raw Data: <span id="raw" class="rawColor"></span></h4>
+    <textarea class="tArea" id="ta" ></textarea>
+    <br>
+
+    
+
+    <button onclick="allClear()"  class="button2" id="btn2" >Clear</button>
+
+    <button onclick="titleCase()" class="button3" id="btn3" >Title Case</button>
+    
+    <button onclick="eliminateSpace()" class="button4" id="btn4" >Space</button>
+
+    <button onclick="copyFinal()" class="button5" id="btn5" >Copy</button>
+   
+    
+        
+    
+
+
+    <div>
+        <br>
+        <button onClick="SelfCopy(this.id)"  id="5" class="button button-1" value="Cans" >Cans</button>
+        <button onClick="SelfCopy(this.id)"  id="6" class="button button-1" value="Bottles" >Bottles</button>
+        <button onClick="SelfCopy(this.id)"  id="7" class="button button-1" value="Plastic Bottle" >Plastic Bottle</button>
+        <button onClick="SelfCopy(this.id)"  id="61" class="button button-1" value="Variety Pack" >Variety Pack</button>
+        <button onClick="SelfCopy(this.id)"  id="81" class="button button-1" value="Bottle" >Bottle</button>
+        <button onClick="SelfCopy(this.id)"  id="82" class="button button-1" value="Can" >Can</button>
+
+        
+        <form style="display:inline-block" >
+            <input class="formStyle-input" type="number" id="cSize" step="any">
+            <button type='button' class="formStyle-submit" onClick="customSize()">OZ</button> 
+            <button type='button' class="formStyle-submit" onClick="customSizeCt()">CT</button> 
+            
+         </form> 
+        
+        
+    </div>
+
+    
+        
+
+
+<div>
+    <h4>OZ - Single Size</h4>
+    <button onClick="SelfCopy(this.id)"  id="1" class="button button-1" value="(12 oz)" >12 oz</button>
+    <button onClick="SelfCopy(this.id)"  id="2" class="button button-1" value="(16 oz)" >16 oz</button>
+    <button onClick="SelfCopy(this.id)"  id="3" class="button button-1" value="(20 oz)" >20 oz</button>
+    <button onClick="SelfCopy(this.id)"  id="4" class="button button-1" value="(32 oz)" >32 oz</button>
+    <button onClick="SelfCopy(this.id)"  id="8" class="button button-1" value="(11.2 oz)" >11.2 oz</button>
+    <button onClick="SelfCopy(this.id)"  id="9" class="button button-1" value="(16.9 oz)" >16.9 oz</button>
+    
+
+</div>
+
+<div>
+    <h4>ML - Single Size</h4>
+    <button onClick="SelfCopy(this.id)"  id="10" class="button button-1" value="(50 ml)" >50 ml</button>
+    <button onClick="SelfCopy(this.id)"  id="11" class="button button-1" value="(100 ml)" >100 ml</button>
+    <button onClick="SelfCopy(this.id)"  id="12" class="button button-1" value="(200 ml)" >200 ml</button>
+    <button onClick="SelfCopy(this.id)"  id="17" class="button button-1" value="(250 ml)" >250 ml</button>
+    <button onClick="SelfCopy(this.id)"  id="18" class="button button-1" value="(300 ml)" >300 ml</button>
+    <button onClick="SelfCopy(this.id)"  id="13" class="button button-1" value="(355 ml)" >355 ml</button>
+    <button onClick="SelfCopy(this.id)"  id="14" class="button button-1" value="(375 ml)" >375 ml</button>
+    <button onClick="SelfCopy(this.id)"  id="15" class="button button-1" value="(500 ml)" >500 ml</button>
+    <button onClick="SelfCopy(this.id)"  id="16" class="button button-1" value="(750 ml)" >750 ml</button>
+    <button onClick="SelfCopy(this.id)"  id="34" class="button button-1" value="(187 ml)" >187 ml</button>
+    <br>
+    <br>
+    <button onClick="SelfCopy(this.id)"  id="19" class="button button-1" value="(1 L)" >1 L</button>
+    <button onClick="SelfCopy(this.id)"  id="20" class="button button-1" value="(1.5 L)" >1.5 L</button>
+    <button onClick="SelfCopy(this.id)"  id="31" class="button button-1" value="(1.75 L)" >1.75 L</button>
+    <button onClick="SelfCopy(this.id)"  id="33" class="button button-1" value="(2 L)" >2 L</button>
+    <button onClick="SelfCopy(this.id)"  id="32" class="button button-1" value="(3 L)" >3 L</button>
+
+</div>
+
+<div>
+    <h4>OZ - Extended Size</h4>
+    <button onClick="SelfCopy(this.id)"  id="21" class="button button-1" value="(12 oz x 4 ct)" >12 oz x 4 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="22" class="button button-1" value="(12 oz x 6 ct)" >12 oz x 6 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="27" class="button button-1" value="(12 oz x 8 ct)" >12 oz x 8 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="23" class="button button-1" value="(12 oz x 12 ct)" >12 oz x 12 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="24" class="button button-1" value="(12 oz x 18 ct)" >12 oz x 18 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="25" class="button button-1" value="(12 oz x 24 ct)" >12 oz x 24 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="26" class="button button-1" value="(12 oz x 30 ct)" >12 oz x 30 ct</button>
+    <br>
+    <br>
+    <button onClick="SelfCopy(this.id)"  id="41" class="button button-1" value="(16 oz x 4 ct)" >16 oz x 4 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="42" class="button button-1" value="(16 oz x 6 ct)" >16 oz x 6 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="47" class="button button-1" value="(16 oz x 8 ct)" >16 oz x 8 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="43" class="button button-1" value="(16 oz x 12 ct)" >16 oz x 12 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="44" class="button button-1" value="(16 oz x 18 ct)" >16 oz x 18 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="45" class="button button-1" value="(16 oz x 24 ct)" >16 oz x 24 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="46" class="button button-1" value="(16 oz x 30 ct)" >16 oz x 30 ct</button>
+    <br>
+    <br>
+    <button onClick="SelfCopy(this.id)"  id="51" class="button button-1" value="(11 oz x 4 ct)" >11 oz x 4 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="52" class="button button-1" value="(11 oz x 6 ct)" >11 oz x 6 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="57" class="button button-1" value="(11 oz x 8 ct)" >11 oz x 8 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="53" class="button button-1" value="(11 oz x 12 ct)" >11 oz x 12 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="54" class="button button-1" value="(11 oz x 18 ct)" >11 oz x 18 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="55" class="button button-1" value="(11 oz x 24 ct)" >11 oz x 24 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="56" class="button button-1" value="(11 oz x 30 ct)" >11 oz x 30 ct</button>
+    <br>
+    <br>
+    <button onClick="SelfCopy(this.id)"  id="71" class="button button-1" value="(200 ml x 4 ct)" >200 ml x 4 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="72" class="button button-1" value="(200 ml x 6 ct)" >200 ml x 6 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="73" class="button button-1" value="(187 ml x 4 ct)" >187 ml x 4 ct</button>
+    <button onClick="SelfCopy(this.id)"  id="74" class="button button-1" value="(187 ml x 6 ct)" >187 ml x 6 ct</button>
+
+
+    
+
+</div>
+
+
+    
+   
+
+    <Script>
+
+        function customSize(){
+
+            var cus = document.getElementById('cSize').value;
+            var fincus = "("+cus+" oz)";
+            navigator.clipboard.writeText(fincus);
+
+        }
+
+        function customSizeCt(){
+
+            var cus2 = document.getElementById('cSize').value;
+            var fincus2 = "("+cus2+" ct)";
+            navigator.clipboard.writeText(fincus2);
+
+        }
+
+
+
+
+            $('#expand-menu').hide();
+            $(document).on('click', function(e) {
+                if ( $(e.target).closest('#about').length ) {
+                    $("#expand-menu").show();
+                }else if ( ! $(e.target).closest('#expand-menu').length ) {
+                    $('#expand-menu').hide();
+                }
+            });
+
+
+           
+
+           
+
+           function allClear(){
+            document.getElementById('raw').innerHTML = '';
+            document.getElementById('ta').value = '';
+           }
+
+        // Button 02 Start
+            function titleCase() {
+
+            var x = document.getElementById('ta').value;
+            var rawDa = x;
+            document.getElementById('raw').innerHTML = rawDa;
+            var lowerCase = x.toLowerCase();
+            var upperCase = upperCase(lowerCase);
+            var finalCase = fixExceptions(upperCase);
+            var newFinalCase = fixSpecialUpper(finalCase);
+            var newFinalCase2 = fixFirstLetter(newFinalCase);
+            //document.getElementById("ta").value = titleCase(lowerCase);
+            document.getElementById("ta").value = newFinalCase2;
+
+
+            // Sub Function 01
+                function upperCase(str) {
+
+                str.toLowerCase();
+                var strAr = str.split(" ");
+                for(var i=0;i<strAr.length;i++)
+                {
+                    strAr[i] = strAr[i].charAt(0).toUpperCase() + strAr[i].substring(1).toLowerCase();     
+                }
+                str = strAr.join(" ");
+                return str;
+                }
+
+                //Sub function 02
+
+                function fixExceptions(finStr){
+
+  
+                    let result = /\bA\b|\bAn\b|\bAnd\b|\bAs\b|\bAt\b|\bBut\b|\bBy\b|\bEn\b|\bFor\b|From\b|\bIf\b|\bIn\b|\bInto\b|\bNor\b|\bOf\b|\bOn\b|\bOr\b|\bOnto\b|\bOver\b|\bPer\b|\bSo\b|\bThan\b|\bNot\b|\bTo\b|\bUpon\b|\bVia\b|\bWith\b|\bWithout\b|\bWas\b|\bDe\b|\bYet\b|\bMl\b|\bOz\b|\bCt\b|\bX\b|\bG\b|\bPt\b|\bKg\b|\bLb\b|\bQt\b|\bFt\b|\bYd\b|\bGal\b|/g;
+
+                    let newStr = finStr.replaceAll(result, (match) => { 
+                        
+                         return match.toLowerCase();
+                     });
+                    return newStr;
+                    
+                }
+
+                //Sub function 03
+                function fixSpecialUpper(finStr2){
+
+  
+                    let result2 = /\bIpa\b|\bPet\b|\bVsop\b|\bVs\b|\bXo\b|\b3d\b|\bBbq\b|\bApa\b|\bNeipa\b|\bDdh\b|/g;
+
+                    let newStr2 = finStr2.replaceAll(result2, (match) => { 
+                        
+                        return match.toUpperCase();
+                    });
+                    return newStr2;
+
+                }
+
+                //Sub function 04
+                function fixFirstLetter(finStr3){
+
+                    let stri = finStr3;
+                    let newStr3 = stri.charAt(0).toUpperCase() + stri.slice(1);
+
+
+                    return newStr3;
+
+                }
+
+
+
+
+            }
+            
+   // Button 2 End
+
+        
+
+        function eliminateSpace() {
+            let dummyString = document.getElementById('ta').value;
+            dummyString = dummyString.trim().split(/\s+/g).join(' ');
+            document.getElementById("ta").value = dummyString;
+        }
+
+        function copyFinal(){
+
+            var cp = document.getElementById('ta').value;
+            navigator.clipboard.writeText(cp);
+
+            
+
+        }
+
+        
+        function SelfCopy(copyText)
+      {
+          
+          var xy = document.getElementById(copyText).value;
+          navigator.clipboard.writeText(xy);
+
+
+          const btn = document.getElementById(copyText);
+           
+                btn.style.border = '3px solid #e53067';
+                btn.style.backgroundColor = '#e53067';
+                btn.style.color = 'white';
+                setTimeout (function () {
+                    
+                    btn.style.backgroundColor = 'white';
+                    btn.style.color = '#253873';
+                    btn.style.border = '2px solid #253873';
+                }, 1000);
+               
+      }
+
+
+      
+    </Script>
+    
+    
+
+
+
+
+    
+    
+</body>
+</html>
