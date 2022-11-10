@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <!--=============== FAVICON ===============-->
         <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
         
@@ -14,6 +15,38 @@
         <link rel="stylesheet" href="assets/css/styles.css">
 
         <title>Rashedul Hoque Portfolio</title>
+
+        <style>
+
+            :root {
+            
+           
+            --hue: 207;
+            --sat: 90%;
+            --lig: 61%;
+            --first-color: hsl(var(--hue), var(--sat), var(--lig));
+            --first-color-alt: hsl(var(--hue), var(--sat), 57%); /* -4% */
+            --title-color: hsl(var(--hue), 12%, 15%);
+            --text-color: hsl(var(--hue), 12%, 45%);
+            --text-color-light: hsl(var(--hue), 8%, 75%);
+            --text-color-lighten: hsl(var(--hue), 8%, 92%);
+            --body-color: hsl(var(--hue), 100%, 99%);
+            --container-color: #fff;
+
+            /*========== Font and typography ==========*/
+            /*.5rem = 8px | 1rem = 16px ...*/
+            --body-font: 'Poppins', sans-serif;
+            --h2-font-size: 1.25rem;
+            --h3-font-size: 1rem;
+            --normal-font-size: .938rem;
+            --small-font-size: .813rem;
+            --smaller-font-size: .75rem;
+}
+
+
+        </style>
+
+
     </head>
     <body>
 
@@ -83,7 +116,7 @@
               document.getElementById("show1").style.display = "block";
               
             }
-            setTimeout("showIt()", 4500); // after 6 sec
+            setTimeout("showIt()", 1000); // after 6 sec
             
             function showIt2() {
               document.getElementById("show2").style.display = "block";
@@ -98,12 +131,19 @@
             function showIt4() {
               document.getElementById("show4").style.display = "block";
             }
-            setTimeout("showIt4()", 22100); // after 24 secs
+            setTimeout("showIt4()", 24100); // after 24 secs
             
             function showIt5() {
               document.getElementById("show5").style.display = "block";
             }
-            setTimeout("showIt5()", 30000); // after 30 secs
+            setTimeout("showIt5()", 29000); // after 30 secs
+
+            function showIt6() {
+              document.getElementById("show6").style.display = "block";
+            }
+            setTimeout("showIt6()", 37000); // after 30 secs
+
+            
 
             // Copy email
             function copyToClipboard() {
@@ -115,20 +155,86 @@
             
         </script>
 
+        <script>
+            
+            
+            function colorChanger (val){
 
-        <!--=============== HEADER ===============-->
+                var r = document.querySelector(':root');
+                r.style.setProperty('--first-color', val);
+                r.style.setProperty('--first-color-alt', val);
+                
+                
+            }
+
+            function colorReset() {
+
+                var r = document.querySelector(':root');
+                r.style.setProperty('--first-color', '#42a5f5');
+                r.style.setProperty('--first-color-alt', '#2f9bf4');
+
+            }
+
+        </script>
+
+        <script>
+                        $(document).ready(function(e) {
+                $('.btn01').on('mouseenter', function(e){
+                    x = e.pageX-$(this).offset().left;
+                    y = e.pageY-$(this).offset().top;
+                    $(this).find('span').css({top:y, left:x})
+                })
+                $('.btn01').on('mouseout', function(e){
+                    x = e.pageX-$(this).offset().left;
+                    y = e.pageY-$(this).offset().top;
+                    $(this).find('span').css({top:y, left:x})
+                })
+            })
+
+            $(document).ready(function(e) {
+                $('.btn02').on('mouseenter', function(e){
+                    x = e.pageX-$(this).offset().left;
+                    y = e.pageY-$(this).offset().top;
+                    $(this).find('span').css({top:y, left:x})
+                })
+                $('.btn02').on('mouseout', function(e){
+                    x = e.pageX-$(this).offset().left;
+                    y = e.pageY-$(this).offset().top;
+                    $(this).find('span').css({top:y, left:x})
+                })
+            })
+        </script>
+
+        
+       
+            
+
+
+         <!--=============== HEADER ===============-->
         <header class="profile container">
+             <!--=============== Top icons ===============-->
+            
             <!-- Theme button -->
-            <i class="ri-moon-line change-theme" id="theme-button"></i>
+                <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+                
+                
+           
+
+            
 
             <div class="profile__container grid">
                 <div class="profile__data">
                     <div class="profile__border">
                         <div class="profile__perfil">
+
                             <!-- Insert your image, according to the example size of the portfolio -->
+                            
                             <img src="assets/img/profile pic_v2.jpg" alt="">
                         </div>
                     </div>
+
+
 
                     <h2 class="profile__name">Rashedul Hoque</h2>
                     <h3 class="profile__profession">B+ is my blood group as well as my attitude.</h3>
@@ -159,7 +265,7 @@
                         <span
                         class="txt-rotate"
                         data-period="1500"
-                        data-rotate='[ "Developer", "Designer", "Data Enthusiast", "Freelancer", "Hobbyist Youtuber" ]'></span>
+                        data-rotate='[ "Developer", "Designer", "Data Enthusiast", "UI & UX Designer", "Freelancer", "Hobbyist Youtuber" ]'></span>
                         </h3> 
 
                     <div class="intro_animation" id="intro_box">
@@ -168,32 +274,37 @@
                         <p id="show1" style="display: none">Developer</p> 
                         <p id="show2" style="display: none">Designer</p> 
                         <p id="show3" style="display: none">Data Enthusiast</p> 
-                        <p id="show4" style="display: none">Freelancer</p> 
-                        <p id="show5" style="display: none">Hobbyist Youtuber</p> 
+                        <p id="show4" style="display: none">UI & UX Designer</p> 
+                        <p id="show5" style="display: none">Freelancer</p> 
+                        <p id="show6" style="display: none">Hobbyist Youtuber</p> 
                     
                     </div>
 
                 </div>
+                
 
+                <!-- My story/ 
+                <div class="my_story"> 
 
-                <div class="profile__info grid">
-                    <div class="profile__info-group">
-                        <h3 class="profile__info-number">7</h3>
-                        <p class="profile__info-description">
-                            Years of <br> work
+                    
+
+                    <div class="story_box" >
+                        
+                        <p>
+                            <span class="c1">Hi,</span> I'm a <span class="c2">web designer</span> based in Dhaka, Bangladesh.
+                            I have over <span class="c3">4 years of experience</span> in the design industry.
+                            I'm also specialized in <span class="c2">UI/UX design</span>. You can check out my work below.
                         </p>
+                    
                     </div>
-                    <div class="profile__info-group">
-                        <h3 class="profile__info-number">+124</h3>
-                        <p class="profile__info-description">
-                            Completed <br> projects
-                        </p>
-                    </div>
-                    <div class="profile__info-group">
-                        <h3 class="profile__info-number">96</h3>
-                        <p class="profile__info-description">Satisfied <br> customers</p>
-                    </div>
+
+                
+
                 </div>
+                About me -->
+
+                
+                
 
                 <div class="profile__buttons">
                     <!-- 
@@ -201,9 +312,14 @@
                         Hire Me <i class="ri-arrow-up-circle-line"></i>
                     </a> Hire me button -->
 
-                    <a download="" href="" class="button">
-                        Download CV <i class="ri-download-line"></i>
-                    </a>
+                    
+
+                    <div class="button01">
+                        <a href="#" class="btn01"> <span></span> Download CV
+                            <i class="ri-download-line"></i>
+                        </a>
+                    </div>
+                    
 
 
                     <div class="profile__buttons-small">
@@ -220,7 +336,7 @@
                             <a class="button button__small button__gray" style="color:#ea4335; cursor: pointer;" onclick="copyToClipboard()">
                                 <i class="ri-mail-add-line"></i>
                             </a>
-                            <span class="tooltiptext">Copied</span>
+                            <span class="tooltiptext">Copy</span>
                             
                         </div>
                         
@@ -232,10 +348,10 @@
 
         <!--=============== MAIN ===============-->
         <main class="main">
-            <section class="filters container">
+            <section class="filters container" >
                 <!--=============== FILTERS TABS ===============-->
-                <ul class="filters__content">
-                    <button class="filters__button" data-target="#Education">
+                <ul class="filters__content" id="filter-tab">
+                    <button class="filters__button" data-target="#Education" >
                         Education
                     </button>
                     <button class="filters__button" data-target="#AcademicProjects">
@@ -244,10 +360,10 @@
                     <button class="filters__button" data-target="#Activities">
                         Co-curricular Activities
                     </button>
-                    <button class="filters__button filter-tab-active" data-target="#Experience">
+                    <button class="filters__button " data-target="#Experience">
                         Experience
                     </button>
-                    <button class="filters__button" data-target="#projects">
+                    <button class="filters__button filter-tab-active " data-target="#projects">
                         Projects
                     </button>
                     <button class="filters__button" data-target="#skills">
@@ -273,7 +389,7 @@
                             </div>
 
                             <div class="education_title">
-                                <i class="ri-award-fill" style="color:#42a5f5; font-size: 19px;"></i> 
+                                <i class="ri-award-fill" style="color:var(--first-color); font-size: 19px;"></i> 
                                 <a> B.Sc in Computer Science</a>
                                 
                             </div>
@@ -297,7 +413,7 @@
                             </div>
 
                             <div class="education_title">
-                                <i class="ri-award-fill" style="color:#42a5f5; font-size: 19px;"></i>
+                                <i class="ri-award-fill" style="color:var(--first-color); font-size: 19px;"></i>
                                 <a>Higher Secondary Certificate </a>
                                 
                             </div>
@@ -321,7 +437,7 @@
                             </div>
 
                             <div class="education_title">
-                                <i class="ri-award-fill" style="color:#42a5f5; font-size: 19px;"></i>
+                                <i class="ri-award-fill" style="color:var(--first-color); font-size: 19px;"></i>
                                 <a> Secondary School Certificate</a>
                                 
                             </div>
@@ -336,7 +452,7 @@
                             </div>
                             
                         </article>
-
+                        <br>
                         
                     </div>
 
@@ -473,7 +589,7 @@
 
                     <!--=============== Experience===============-->
 
-                    <div class="experience__content filters__active" data-content id="Experience">
+                    <div class="experience__content" data-content id="Experience">
                         
                         <div class="experience_box">
                             <div class="Experience_logo">
@@ -517,7 +633,7 @@
 
 
                     <!--=============== PROJECTS ===============-->
-                    <div class="projects__content grid " data-content id="projects">
+                    <div class="projects__content grid filters__active" data-content id="projects">
                         
                         <article class="projects__card">
                             <!-- Insert your image in a rectangular format (Ex: 600 x 400, 1000 x 800, 1200 x 1000, etc) -->
@@ -863,8 +979,107 @@
         </main>
 
         <br>
-        <br>
+
+
+        <!--=============== Contact me button ===============-->
+        <div class="chat-container">
+            <div class="chat-button" onclick="openForm()">
+                <span> <i class="ri-chat-smile-2-line"></i></span>
+                <a>Hire me</a>
+            </div>
+
+        </div>
+
+        <div class="chat-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+              
+            
+              <label for="msg"><b>Get in touch</b></label>
+
+              <input placeholder="Your Name" type="text" tabindex="1" class="form__field" required>
         
+            <input placeholder="Your Email Address" type="email" tabindex="1" class="form__field" required>
+
+
+            <div class="form-icons">
+
+                
+                
+                    
+                        
+                        <label class="container">
+                            Web Dev.
+                            <input type="checkbox" checked="checked">
+                            <span class="checkmark"></span>
+                          </label>
+                   
+
+                    
+                        
+                        <label class="container">
+                            Android App
+                            <input type="checkbox" >
+                            <span class="checkmark"></span>
+                          </label>
+                    
+
+                    
+                       
+                        <label class="container">
+                            UI/UX
+                            <input type="checkbox" >
+                            <span class="checkmark"></span>
+                          </label>
+                    
+                    
+                       
+                        
+                        <label class="container">
+                            Graphic Design
+                            <input type="checkbox" ">
+                            <span class="checkmark"></span>
+                          </label>
+                   
+
+                
+
+              </div>
+
+
+            <textarea placeholder="Tell me about the project.." name="msg" required></textarea>
+
+              
+          
+              <button type="submit" class="btn">Send</button>
+              <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+          </div>
+        
+        
+        
+        
+        <div class="footer" >
+
+            © 2022 Rashedul Hoque
+            
+            <div class="top-icons">
+                <input type="color" value="#176fd3"  onchange="colorChanger(this.value)">
+            <i class="ri-refresh-line" onclick="colorReset()"></i>
+            </div>
+        </div>
+
+
+
+        
+        <script>
+            function openForm() {
+              document.getElementById("myForm").style.display = "block";
+            }
+            
+            function closeForm() {
+              document.getElementById("myForm").style.display = "none";
+            }
+        </script>
 
         <!--=============== SCROLLREVEAL ===============-->
         <script src="assets/js/scrollreveal.min.js"></script>

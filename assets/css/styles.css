@@ -1,6 +1,10 @@
 /*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+
 /*=============== VARIABLES CSS ===============*/
 :root {
   /*========== Colors ==========*/
@@ -49,6 +53,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  
 }
 
 body {
@@ -57,6 +62,7 @@ body {
   background-color: var(--body-color);
   color: var(--text-color);
   transition: .3s; /* For animation dark mode */
+  
 }
 
 h1, h2, h3 {
@@ -172,7 +178,7 @@ body.dark-theme {
 }
 
 .profile__border {
-  border: 3.5px solid #f59362;
+  border: 3.5px solid var(--first-color);
   justify-self: center;
   width: 130px;
   height: 130px;
@@ -180,7 +186,7 @@ body.dark-theme {
   display: grid;
   place-items: center;
   margin-bottom: .75rem;
-  box-shadow: 0 8px 15px rgba(246, 135, 79, 0.35);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .profile__name {
@@ -255,7 +261,7 @@ body.dark-theme {
   padding: 1.15rem 1.5rem;
   border-radius: .5rem;
   transition: .3s;
-  box-shadow: 0 8px 24px hsla(var(--hue), var(--sat), var(--lig), .25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -331,6 +337,8 @@ body.dark-theme {
   background-color: transparent;
   transition: .3s;
 }
+
+
 
 .filters__button:hover {
   background-color: var(--body-color);
@@ -518,6 +526,7 @@ body.dark-theme {
   align-items: center;
   flex-wrap: wrap;
   
+  
 }
 
 
@@ -573,17 +582,404 @@ body.dark-theme {
   
 }
 
-.tooltip:active .tooltiptext {
+.tooltip:hover .tooltiptext {
   visibility: visible;
   
 }
 
 
 
+.footer {
+  background-color: var(--text-color-lighten);
+  display: flex;
+  padding: 10px;
+  
+  width: 100%;
+  border-radius: 7px;
+  justify-content: space-around;
+  text-align: center;
+}
+
+
+
+.top-icons{
+  display: flex;
+  column-gap: 10px;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  
+}
+
+.top-icons i {
+  cursor: pointer;
+}
+
+.my_story {
+ 
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.story_box_old
+{
+    
+    
+    
+    border:0;
+   
+    background-color: var(--body-color);
+    box-shadow: 0px 0px 25px #00000027;
+    z-index: 2;
+    
+   
+    cursor: pointer;
+    padding: 15px;
+    margin: 5px;
+
+}
+
+
+.story_box
+{
+    
+    font-size: 16px;
+    
+    border:0;
+   
+    background-color: var(--body-color);
+    box-shadow: 0px 0px 10px #00000027;
+    z-index: 2;
+    
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 1px;
+    border-radius: 10px; 
+    cursor: pointer;
+    padding: 15px;
+    margin: 5px;
+    
+
+}
 
 
 
 
+
+.story_box .c2 {
+  font-size: 22px;
+  color: var(--first-color);
+
+  
+  
+}
+.story_box .c3 {
+  font-size: 20px;
+  
+  background:linear-gradient(180deg, transparent 75%, var(--first-color) 40%);
+  
+}
+
+.story_box .c1 {
+  font-weight: 600;
+  font-size: 20px;
+  
+}
+
+a.bolder {
+  font-weight: bold;
+}
+
+
+.button01{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.btn01{
+
+  font-weight: 500;
+  position: relative;
+  padding: 12px 15px;
+  border: 2px solid var(--first-color);
+  border-radius: 10px;
+  
+  text-decoration: none;
+  color: var(--first-color);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.btn01:hover{
+  color: var(--text-color-lighten);
+}
+
+
+
+.btn01 span{
+  position: absolute;
+  display: block;
+  width: 0px;
+  height: 0px;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  background: var(--first-color);
+  transition: width 0.7s, height 0.7s;
+  z-index: -1;
+}
+.btn01:hover span {
+  width: 390px;
+  height: 330px;
+}
+
+/*=============== Chat button Start ===============*/
+
+.chat-container{
+  z-index: 100;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.chat-button{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background: var(--text-color-lighten);
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+  cursor: pointer;
+  transition: .3s linear;
+  
+  
+}
+
+.chat-button:hover{
+  
+  width: 150px;
+  height: 50px;
+}
+
+.chat-button span{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--first-color);
+  color: #f1f1f1;
+  text-align: center;
+ 
+  
+  transition: .6s linear;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-button span i {
+    font-size: 32px;
+}
+
+.chat-button:hover span{
+  transform: translateX(-100%);
+  transition-delay: .1s;
+}
+
+.chat-button a{
+  
+  
+  font-size: 18px;
+  color: var(--first-color);
+  text-align: center;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: 0.3s linear;
+}
+
+.chat-button:hover a{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/*=============== Chat button End ===============*/
+
+/*=============== Chat window open ===============*/
+
+
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border: 3px solid #f1f1f1;
+  z-index: 101;
+}
+
+/* Add styles to the form container */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  padding: 10px;
+  background-color: white;
+  
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+  border-radius: 10px;
+}
+
+.form-container input {
+  
+  padding: 15px;
+  margin: 5px 0 5px 0;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 10px;
+  
+  
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  border:1px solid var(--first-color);
+  outline: none;
+}
+
+.form-container input:focus {
+  border:1px solid var(--first-color);
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+.form-icons {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+  padding: 5px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  
+}
+
+.form-icons i {
+  color: var(--first-color);
+  font-size: 30px;
+}
+
+
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+
+
+/*=============== Chat window close ===============*/
 
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar {
@@ -644,7 +1040,9 @@ body.dark-theme {
     width: 180px;
     height: auto;
   }
-  
+
+
+
 
 }
 /* For medium devices */
@@ -684,6 +1082,8 @@ body.dark-theme {
   }
 
 
+
+
 }
 
 @media screen and (min-width: 710px) and (max-width: 1080px) {
@@ -716,6 +1116,8 @@ body.dark-theme {
     grid-template-columns: repeat(2, 320px);
     justify-content: center;
   }
+
+
 
 }
 

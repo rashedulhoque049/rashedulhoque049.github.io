@@ -56,11 +56,14 @@ const sr = ScrollReveal({
     delay: 400,
 })
 
-sr.reveal(`.profile__border`)
-sr.reveal(`.profile__name`, {delay: 500})
-sr.reveal(`.profile__profession`, {delay: 600})
-sr.reveal(`.profile__social`, {delay: 700})
-sr.reveal(`.profile__info-group`, {interval: 100, delay: 700})
-sr.reveal(`.profile__buttons`, {delay: 800})
-sr.reveal(`.filters__content`, {delay: 900})
-sr.reveal(`.filters`, {delay: 1000})
+
+sr.reveal(`.profile__border`, {delay: 1000})
+sr.reveal(`.profile__name`, {delay: 1000})
+sr.reveal(`.profile__profession`, {delay: 1200})
+sr.reveal(`.profile__social`, {delay: 1500})
+sr.reveal(`.profile__info-group`, {interval: 100, delay: 2000})
+sr.reveal(`.profile__buttons`, {delay: 2200})
+sr.reveal(`.filters__content`, {delay: 2500})
+sr.reveal(`.filters`, {delay: 3000})
+sr.reveal(`.footer`, {delay: 3200})
+
