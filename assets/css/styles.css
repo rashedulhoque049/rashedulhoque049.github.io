@@ -76,7 +76,9 @@ ul {
 
 a {
   text-decoration: none;
+  color: var(--title-color);
 }
+
 
 img {
   max-width: 100%;
@@ -171,7 +173,14 @@ body.dark-theme {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.3s;
 }
+
+.profile__perfil:hover {
+  transform: scale(1.4);
+}
+
+
 
 .profile__perfil img {
   width: 150px;
@@ -187,6 +196,7 @@ body.dark-theme {
   place-items: center;
   margin-bottom: .75rem;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  
 }
 
 .profile__name {
@@ -482,8 +492,9 @@ body.dark-theme {
   display: flex;
   flex-direction: row;
   padding: 10px;
-  justify-content: center;
+  
   align-items: center;
+  
 
 }
 
@@ -598,6 +609,7 @@ body.dark-theme {
   border-radius: 7px;
   justify-content: space-around;
   text-align: center;
+  
 }
 
 
@@ -648,16 +660,16 @@ body.dark-theme {
     
     border:0;
    
-    background-color: var(--body-color);
-    box-shadow: 0px 0px 10px #00000027;
+    
+    
     z-index: 2;
     
     font-family: 'Bebas Neue', cursive;
     letter-spacing: 1px;
     border-radius: 10px; 
     cursor: pointer;
-    padding: 15px;
-    margin: 5px;
+    
+    
     
 
 }
@@ -909,10 +921,10 @@ a.bolder {
 
 
 
-.container {
+.form-icons-container {
   display: block;
   position: relative;
-  padding-left: 35px;
+ 
   margin-bottom: 12px;
   cursor: pointer;
   font-size: 15px;
@@ -923,7 +935,7 @@ a.bolder {
 }
 
 /* Hide the browser's default checkbox */
-.container input {
+.form-icons-container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -942,12 +954,12 @@ a.bolder {
 }
 
 /* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
+.form-icons-container:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
+.form-icons-container input:checked ~ .checkmark {
   background-color: #2196F3;
 }
 
@@ -959,12 +971,12 @@ a.bolder {
 }
 
 /* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
+.form-icons-container input:checked ~ .checkmark:after {
   display: block;
 }
 
 /* Style the checkmark/indicator */
-.container .checkmark:after {
+.form-icons-container .checkmark:after {
   left: 7px;
   top: 3px;
   width: 5px;
@@ -980,6 +992,96 @@ a.bolder {
 
 
 /*=============== Chat window close ===============*/
+
+/*=============== Start pie chart ===============*/
+.pie-chart{
+  grid-area: a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+
+}
+
+.pie-chart img {
+  --m:
+    radial-gradient(circle farthest-side at right,#000 99%,#0000) 
+      0 100%/46% 92% no-repeat,
+    radial-gradient(circle farthest-side at left ,#000 99%,#0000) 
+      100% 0/46% 92% no-repeat;
+  -webkit-mask: var(--m);
+          mask: var(--m);
+  filter: grayscale(.5);
+  transition: .3s linear;
+  cursor: pointer;
+  width: 250px;
+}
+.pie-chart img:hover {
+  -webkit-mask-position: 7.5% 50%,92.5% 50%;
+          mask-position: 7.5% 50%,92.5% 50%;
+  filter: grayscale(0);
+}
+
+/*=============== Endpie chart ===============*/
+
+.middle-container{
+
+  display: grid;
+  grid-template-areas:
+    'a b b'
+    'a c c';
+  gap: 10px;
+  padding: 6px;
+  justify-content: center;
+  align-items: center;
+ 
+
+}
+
+.middle-item-01{
+  grid-area: b;
+  background-color: #000;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.image-middle-aboutme{
+
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #04AA6D;
+  
+}
+
+.middle-item-02{
+  grid-area: c;
+  
+  
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+.experience_microstock{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 5px;
+
+}
+.em_box{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar {
@@ -1041,6 +1143,44 @@ a.bolder {
     height: auto;
   }
 
+.middle-container{
+  
+  display: grid;
+  grid-template-areas:
+    'b'
+    'c'
+    'a';
+  gap: 10px;
+  padding: 6px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.pie-chart{
+  grid-area: a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.experience_box {
+  max-width: 370px;
+  
+}
+
+.experience_microstock{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  
+
+}
+.em_box{
+  max-width: 170px;
+}
 
 
 
@@ -1067,6 +1207,7 @@ a.bolder {
     margin: 2rem auto;
     column-gap: 0.1rem;
     align-content: center;
+    justify-content: space-evenly;
   }
 
   .skills__content {
@@ -1080,9 +1221,27 @@ a.bolder {
     grid-template-columns: repeat(1, 320px);
     justify-content: center;
   }
+  .middle-container{
+  
+    display: grid;
+    grid-template-areas:
+      'b'
+      'c'
+      'a';
+    gap: 10px;
+    padding: 6px;
+    justify-content: center;
+    align-items: center;
+  
+  }
 
-
-
+  .pie-chart{
+    grid-area: a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  }
 
 }
 
@@ -1099,9 +1258,9 @@ a.bolder {
     display: flex;
     align-content: space-between;
     flex-wrap: nowrap;
-    
+    justify-content: space-around
     margin: 2rem auto;
-    column-gap: 1rem;
+    
   }
 
   .skills__content {

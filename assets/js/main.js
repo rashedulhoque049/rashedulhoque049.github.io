@@ -65,5 +65,6 @@ sr.reveal(`.profile__info-group`, {interval: 100, delay: 2000})
 sr.reveal(`.profile__buttons`, {delay: 2200})
 sr.reveal(`.filters__content`, {delay: 2500})
 sr.reveal(`.filters`, {delay: 3000})
+sr.reveal(`.middle-container`, {delay: 3100})
 sr.reveal(`.footer`, {delay: 3200})
 
